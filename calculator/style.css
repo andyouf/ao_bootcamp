@@ -1,0 +1,161 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+html {
+  font-size: 24px;
+  font-family: "Lucida Bright", cursive;
+}
+
+body {
+  transition: background-color 2.5s ease;
+  background-color: seagreen;
+}
+
+body:hover {
+  background-color: seagreen;
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding: 1rem 0;
+}
+
+#app h1 {
+  font-size: 2rem;
+  letter-spacing: 0.5rem;
+  margin-bottom: 8px;
+}
+
+.calculator {
+  display: grid;
+  border: 4px solid yellow;
+  border-radius: 32px;
+  overflow: hidden;
+  padding: 24px 12px 14px;
+  background-color: black;
+  width: 480px;
+  min-height: 720px;
+  box-shadow: 5px 5px 12px -6px black;
+  grid-template-rows: 180px repeat(12, 1fr);
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.display {
+  background: rgb(151, 192, 219);
+  padding: 5px 8px;
+  /* specifies a grid item's size and location in a grid layout,  do this formatting for all the columns up until but not including 6 */
+  grid-column: 1 / 6;
+  grid-row: 1 / 4;
+  border: 2px solid black;
+  border-radius: 12px;
+  box-shadow: inset 2px 2px 12px -6px black, inset -2px -2px 12px -6px black;
+  height: 160px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  /* create three equal width tracks that grow and shrink according to the available space */
+  grid-template-rows: 30px 40px 50px;
+}
+
+.memory {
+  grid-column: 1 / 4;
+  grid-row: 1;
+  display: grid;
+  grid-gap: 12px;
+  grid-template-columns: 2fr 3fr;
+}
+
+.calculator button {
+  font-family: "Coda", cursive;
+  font-size: 3vh;
+  font-weight: 500;
+  border-radius: 25px;
+  cursor: pointer;
+  box-shadow: 2px 5px 9px -4px grey, 0 0 6px -3px yellow;
+}
+
+.controls {
+  grid-column: 1 / 6;
+  grid-row: 2 / 14;
+  display: grid;
+  grid-gap: 12px;
+  grid-template-rows: repeat(5, 1fr);
+  grid-template-columns: repeat(4, 1fr);
+  background-color: lightgrey;
+}
+
+button:hover {
+  cursor: pointer;
+  background-color: rgb(151, 192, 219);
+}
+
+.operations {
+  grid-column: 4 / 5;
+  grid-row: 1 / 6;
+  display: grid;
+  grid-gap: 12px;
+  grid-template-rows: repeat(5, 1fr);
+}
+
+.digits {
+  grid-column: 1 / 4;
+  grid-row: 2 / 6;
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+}
+
+.held-value {
+  grid-row: 2;
+  grid-column: 1 / 6;
+  font-size: 25px;
+  text-align: end;
+}
+
+.next-value {
+  font-size: 48px;
+  grid-row: 3;
+  grid-column: 2 / 6;
+  text-align: right;
+  overflow: hidden;
+}
+
+.held-label {
+  grid-row: 1;
+  grid-column: 1 / 6;
+}
+
+.next-operation {
+  grid-row: 3;
+  grid-column: 1;
+}
+
+.extra-buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-column: 1 / 5;
+  grid-row: 6;
+  grid-gap: 10px;
+}
+
+.extra-buttons button {
+  font-size: 3vh;
+  font-weight: 500;
+  border-radius: 25px;
+}
+
+.digits button:last-of-type {
+  grid-column: 2 / 4;
+}
+
+.plus-minus {
+  grid-column: 3 / 4;
+}
